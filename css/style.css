@@ -1,70 +1,43 @@
-.tituload {
-    font-size: 1.2rem;
-    color: #3B28CC;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.contarj {
-    background-color: #2667FF;
-    color: #abc4ff;
-    padding: 10px;
-    border: solid;
-    margin: 10px;
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+.navbar-container{
+    position: sticky;
+    z-index: 4;
+    top: 0;
+}
+.navbar{
+    background-color: blue;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-weight: bold;
+    justify-content: space-between;
+    height: 12vh;
 }
 
-/* ---visualizacion 1200px page adoptar--- */
+.navbar-titulo{
+    color: aliceblue;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
 
-@media(min-width:1200px) {
-    .tituload {
-        font-size: 1.5rem;
-    }
+.navbar-carrito{
+    cursor: pointer;
+}
 
-    .contarj {
-        background-color: #abc4ff;
-        color: #2667FF;
-        border: ridge;
-    }
-
-    .contarjeta {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .adoptar__imagen {
-        border-radius: 100px;
-        width: 300px;
-        margin: 0 auto;
-        display: block;
-    }
-
-    .adoptar__imagen:hover {
-        transform: scale(1.1);
-        border-radius: 30px;
-    }
-
-    .adoptar__nombre {
-        color: black;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-    }
-
-    .adoptar__boton {
-        color: black;
-        font-weight: bold;
-        width: 100px;
-        display: block;
-        margin: 0 auto;
-        border-radius: 10px;
-    }
-
-    .adoptar__boton:hover {
-        transform: scale(1.2);
-    }
-
+.banner{
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-image: linear-gradient(rgb(0, 0, 0, 0.4), (0, 0, 0, 0.4));
+    background-image: "https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2021/09/iphone-13-1.jpeg?resize=1200%2C675&quality=55&strip=all&ssl=1";
 }
