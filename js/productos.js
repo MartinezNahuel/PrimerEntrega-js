@@ -40,6 +40,7 @@ const productos= [
         id: 7,
         nombre: "iphone 14 pro max",
         precio: 160000,
-        img: "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-Pro-Max.jpg"
-    }
+        img: "https://cbafederal.net/wp-content/uploads/2022/09/Apple-iPhone-14-Pro-Max.jpg",
+    },
 ]
+
