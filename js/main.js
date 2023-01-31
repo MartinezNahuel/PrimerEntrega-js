@@ -16,5 +16,16 @@ let comprar= document.createElement("button");
 comprar.innerText= "comprar";
 comprar.className= "p-comprar";
 container.append(comprar);
+
+comprar.addEventListener("click", ()=> {
+    carrito.push({
+        id: producto.id,
+        nombre: producto.nombre,
+        precio: producto.precio,
+        img: producto.img
+    })
+    console.log(carrito)
+})
 });
+
 
