@@ -4,12 +4,17 @@ let carrito = [];
 productos.forEach((producto) => {
 let container= document.createElement("div");
 container.innerHTML= `
-<img src= "${producto.img}">
-<h3> ${producto.nombre} </h3>
-<p> ${producto.precio} </p>
+<img class= "p-img" src= "${producto.img}">
+<h3 class= "p-nombre">  ${producto.nombre} </h3>
+<p class= "p-precio"> $ ${producto.precio} </p>
 `;
+container.className= "p-container";
 
 tarjetas.append(container);
 
-})
+let comprar= document.createElement("button");
+comprar.innerText= "comprar";
+comprar.className= "p-comprar";
+container.append(comprar);
+});
 
