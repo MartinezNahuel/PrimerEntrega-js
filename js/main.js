@@ -1,4 +1,6 @@
 const tarjetas = document.getElementById("tarjetaContenedor")
+const openCarrito= document.getElementById("open-carrito")
+const modalContainer= document.getElementById ("modal-container")
 let carrito = [];
 
 productos.forEach((producto) => {
@@ -27,5 +29,31 @@ comprar.addEventListener("click", ()=> {
     console.log(carrito)
 })
 });
+
+openCarrito.addEventListener("click", ()=> {
+    const modalHeader= document.createElement("div");
+    modalHeader.className= "modalheader"
+    modalHeader.innerHTML= `
+    <h1 "class= modal-titulo"> Carrito </h1>
+    `
+    modalContainer.append(modalHeader);
+
+    const modalButton= document.createElement ("h2");
+    modalButton.innerText= "✖";
+    modalButton.className= "modal-header-button"
+    modalHeader.append(modalButton);
+
+    carrito.forEach((producto) => {
+    let carritoContent = document.createElement("div")
+    carritoContent.className="modal-content"
+    carritoContent.innerHTML= `
+    <img src= "${producto.img}">
+    <h3> "${producto.nombre}" </h3>
+    <h3> "${producto.precio}" $  </h3>
+    `;
+    modalContainer.append(carritoContent);
+    })
+
+})
 
 
