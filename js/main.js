@@ -32,7 +32,7 @@ comprar.addEventListener("click", ()=> {
 
 openCarrito.addEventListener("click", ()=> {
     const modalHeader= document.createElement("div");
-    modalHeader.className= "modalheader"
+    modalHeader.className= "modal-header"
     modalHeader.innerHTML= `
     <h1 "class= modal-titulo"> Carrito </h1>
     `
@@ -52,8 +52,13 @@ openCarrito.addEventListener("click", ()=> {
     <h3> "${producto.precio}" $  </h3>
     `;
     modalContainer.append(carritoContent);
-    })
+    });
 
+    const total = carrito.reduce ((acumulado, pr) => acumulado + pr.precio, 0);
+    const totalcompra= document.createElement("div");
+    totalcompra.className = "total-compra"
+    totalcompra.innerHTML = `total a pagar: ${total} $`
+    modalContainer.append(totalcompra);
 })
 
 
