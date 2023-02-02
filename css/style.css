@@ -135,3 +135,7 @@ cursor: pointer;
     background-color: #005;
     color: aliceblue;
 }
+
+.p-borrar{
+    cursor: pointer;
+}
