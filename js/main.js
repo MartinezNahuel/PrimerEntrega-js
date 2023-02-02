@@ -31,6 +31,8 @@ comprar.addEventListener("click", ()=> {
 });
 
 openCarrito.addEventListener("click", ()=> {
+    modalContainer.innerHTML = "";
+    modalContainer.style.display= "flex";
     const modalHeader= document.createElement("div");
     modalHeader.className= "modal-header"
     modalHeader.innerHTML= `
@@ -42,6 +44,10 @@ openCarrito.addEventListener("click", ()=> {
     modalButton.innerText= "✖";
     modalButton.className= "modal-header-button"
     modalHeader.append(modalButton);
+
+    modalButton.addEventListener("click", ()=> {
+        modalContainer.style.display= "none";
+    })
 
     carrito.forEach((producto) => {
     let carritoContent = document.createElement("div")
