@@ -20,11 +20,22 @@ comprar.className= "p-comprar";
 container.append(comprar);
 
 comprar.addEventListener("click", ()=> {
+
+    const repeat= carrito.some((repeatproduct)=> repeatproduct.id === producto.id);
+
+if (repeat){
+    carrito.map((prod)=>{
+        if(prod.id === producto.id){
+            prod.cantidad++;
+    }
+    });
+}
     carrito.push({
         id: producto.id,
         nombre: producto.nombre,
         precio: producto.precio,
-        img: producto.img
+        img: producto.img,
+        cantidad: producto.cantidad,
     })
     console.log(carrito);
     localStorage.setItem("productos-en-carrito", JSON.stringify(carrito));
