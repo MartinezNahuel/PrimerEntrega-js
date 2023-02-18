@@ -22,12 +22,31 @@ const  carritonav  = ()=> {
     carritoContent.className="modal-content"
     carritoContent.innerHTML= `
     <img src=${producto.img}>
-    <h3 class= prod-n> ${producto.nombre} </h3>
-    <h3 class= prod-p> ${producto.precio} $  </h3>
-    <p class = prod-c > Cantidad: ${producto.cantidad} </p>
+    <h3 class= prod-n> ${producto.nombre}</h3>
+    <h3 class= prod-p> $${producto.precio}   </h3>
+    <span class= "restar"> - </span>
+    <p class = prod-c > Cantidad: ${producto.cantidad}= </p>
+    <span class= "sumar"> + </span>
     <p class= prod-t > total: ${producto.cantidad * producto.precio} </p>
     `;
     modalContainer.append(carritoContent);
+
+    let restar= carritoContent.querySelector(".restar");
+    restar.addEventListener("click", ()=>{
+        if(producto.cantidad!== 1){
+        producto.cantidad--;
+        }
+        SaveLocal();
+        carritonav();
+    });
+
+    let sumar= carritoContent.querySelector (".sumar");
+    sumar.addEventListener("click", ()=>{
+        producto.cantidad++;
+        SaveLocal();
+        carritonav();
+
+    });
 
     let eliminar = document.createElement("span");
     eliminar.innerText = "❌";
@@ -56,10 +75,17 @@ const eliminarProducto =()=>{
         return carritoId !== foundId;
     });
     carritoCounter();
+    SaveLocal();
     carritonav();
 };
 
 const carritoCounter= ()=> {
     cantidadCarrito.style.display= "block";
+    const carritolength= carrito.length;
+    localStorage.setItem ("carritoLength", JSON.stringify(carritolength))
     cantidadCarrito.innerText = carrito.length;
+
+    cantidadCarrito.innerText =JSON.parse(localStorage.getItem("carritoLength"))
 };
+
+carritoCounter();

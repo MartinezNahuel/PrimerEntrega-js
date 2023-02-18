@@ -2,7 +2,8 @@ const tarjetas = document.getElementById("tarjetaContenedor")
 const openCarrito= document.getElementById("open-carrito")
 const modalContainer= document.getElementById ("modal-container")
 const cantidadCarrito= document.getElementById ("cantidadCarrito");
-let carrito = [];
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 productos.forEach((producto) => {
 let container= document.createElement("div");
@@ -41,8 +42,15 @@ if (repeat){
     }
     console.log(carrito);
     carritoCounter();
+    SaveLocal();
     
     
 
 }) ;
 }); 
+
+const SaveLocal= ()=>{
+
+    localStorage.setItem("carrito",JSON.stringify (carrito));
+}
+
