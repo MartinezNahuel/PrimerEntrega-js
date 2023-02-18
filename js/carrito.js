@@ -21,10 +21,11 @@ const  carritonav  = ()=> {
     let carritoContent = document.createElement("div")
     carritoContent.className="modal-content"
     carritoContent.innerHTML= `
-    <img src= "${producto.img}">
-    <h3> "${producto.nombre}" </h3>
-    <h3> "${producto.precio}" $  </h3>
-    <p> Cantidad: ${producto.cantidad} </p>
+    <img src=${producto.img}>
+    <h3 class= prod-n> ${producto.nombre} </h3>
+    <h3 class= prod-p> ${producto.precio} $  </h3>
+    <p class = prod-c > Cantidad: ${producto.cantidad} </p>
+    <p class= prod-t > total: ${producto.cantidad * producto.precio} </p>
     `;
     modalContainer.append(carritoContent);
 
@@ -39,7 +40,7 @@ const  carritonav  = ()=> {
 
 
 
-    const total = carrito.reduce ((acumulado, pr) => acumulado + pr.precio, 0);
+    const total = carrito.reduce ((acumulado, pr) => acumulado + pr.precio * pr.cantidad, 0);
     const totalcompra= document.createElement("div");
     totalcompra.className = "total-compra"
     totalcompra.innerHTML = `total a pagar: ${total} $`
@@ -54,6 +55,11 @@ const eliminarProducto =()=>{
     carrito=carrito.filter((carritoId)=>{
         return carritoId !== foundId;
     });
-
+    carritoCounter();
     carritonav();
-}
+};
+
+const carritoCounter= ()=> {
+    cantidadCarrito.style.display= "block";
+    cantidadCarrito.innerText = carrito.length;
+};

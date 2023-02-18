@@ -86,15 +86,20 @@ font-size: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: fixed;
     overflow: auto;
     z-index: 9;
     top: 12vh;
     scrollbar-color: none;
+    text-align: center;
     border-radius: 30px;
     border: solid, #005;
 }
 
+.modal-container ::-webkit-scrollbar{
+    display: none;
+}
 
 
 .modal-header{
@@ -113,11 +118,12 @@ font-size: 18px;
 cursor: pointer;
 }
 
-.modal-container .modal-content{
+.modal-container > .modal-content{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
     width: 70%;
     margin: 10px;
 } 
@@ -128,7 +134,7 @@ cursor: pointer;
 }
 
 .total-compra{
-    font-size: 25px;
+    font-size: 15px;
     padding: 20px;
     text-align: center;
     padding-top: 20px;
@@ -138,4 +144,50 @@ cursor: pointer;
 
 .p-borrar{
     cursor: pointer;
+}
+
+.prod-n{
+    font-size: 16px;
+    color:#000;
+    text-align: center;
+    margin-top: 2px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+.prod-p{
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    margin-top: 3px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.prod-c{
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    margin-top: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.prod-t{
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    margin-top: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Cantidad carrito */
+.cantidad-carrito{
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    padding: 4px;
+    top: 37px;
+    right: 14px;
+    position: absolute;
+    display: none;
 }

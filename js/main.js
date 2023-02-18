@@ -1,6 +1,7 @@
 const tarjetas = document.getElementById("tarjetaContenedor")
 const openCarrito= document.getElementById("open-carrito")
 const modalContainer= document.getElementById ("modal-container")
+const cantidadCarrito= document.getElementById ("cantidadCarrito");
 let carrito = [];
 
 productos.forEach((producto) => {
@@ -29,16 +30,19 @@ if (repeat){
             prod.cantidad++;
     }
     });
-}
+} else{
     carrito.push({
         id: producto.id,
         nombre: producto.nombre,
         precio: producto.precio,
         img: producto.img,
         cantidad: producto.cantidad,
-    })
+    });
+    }
     console.log(carrito);
-    localStorage.setItem("productos-en-carrito", JSON.stringify(carrito));
+    carritoCounter();
+    
+    
 
-}) 
+}) ;
 }); 
