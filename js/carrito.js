@@ -52,14 +52,26 @@ const  carritonav  = ()=> {
     let eliminar= carritoContent.querySelector(".p-borrar");
     eliminar.addEventListener("click", ()=>{
         eliminarProducto(producto.id);
+        Toastify({
+            text: "Producto Eliminado",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+            background: "linear-gradient(to right, #f2340a, aliceblue)",
+            borderRadius: "2rem",
+            x: "1.5rem",
+            y: "1.5rem",
+            fontSize: "1rem",
+            textTranform: "uppercase",
+            
+            },
+            onClick: function(){} // Callback after click
+            }).showToast();
     })
-    // let eliminar = document.createElement("span");
-    // eliminar.innerText = "❌";
-    // eliminar.className = "p-borrar";
-    // carritoContent.append(eliminar);
-
-    // eliminar.addEventListener("click", eliminarProducto);
-
     });
 
 

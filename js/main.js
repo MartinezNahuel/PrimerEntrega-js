@@ -46,8 +46,25 @@ const getProducts= async ()=>{
             console.log(carrito);
             carritoCounter();
             SaveLocal();
-            
-            
+            Toastify({
+                text: "Producto agregado",
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                background: "linear-gradient(to right, #000, aliceblue)",
+                borderRadius: "2rem",
+                x: "1.5rem",
+                y: "1.5rem",
+                fontSize: "1rem",
+                textTranform: "uppercase",
+                
+                },
+                onClick: function(){} // Callback after click
+                }).showToast();
         
         }) ;
         }); 
