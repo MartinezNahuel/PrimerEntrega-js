@@ -28,6 +28,7 @@ const  carritonav  = ()=> {
     <p class = prod-c > Cantidad: ${producto.cantidad}= </p>
     <span class= "sumar"> + </span>
     <p class= prod-t > total: ${producto.cantidad * producto.precio} </p>
+    <span class= "p-borrar"> ❌ </span>
     `;
     modalContainer.append(carritoContent);
 
@@ -48,12 +49,16 @@ const  carritonav  = ()=> {
 
     });
 
-    let eliminar = document.createElement("span");
-    eliminar.innerText = "❌";
-    eliminar.className = "p-borrar";
-    carritoContent.append(eliminar);
+    let eliminar= carritoContent.querySelector(".p-borrar");
+    eliminar.addEventListener("click", ()=>{
+        eliminarProducto(producto.id);
+    })
+    // let eliminar = document.createElement("span");
+    // eliminar.innerText = "❌";
+    // eliminar.className = "p-borrar";
+    // carritoContent.append(eliminar);
 
-    eliminar.addEventListener("click", eliminarProducto);
+    // eliminar.addEventListener("click", eliminarProducto);
 
     });
 
@@ -68,8 +73,8 @@ const  carritonav  = ()=> {
 
 openCarrito.addEventListener("click", carritonav);
 
-const eliminarProducto =()=>{
-    const foundId = carrito.find((element)=>element.id);
+const eliminarProducto =(id)=>{
+    const foundId = carrito.find((element)=>element.id === id);
 
     carrito=carrito.filter((carritoId)=>{
         return carritoId !== foundId;
